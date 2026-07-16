@@ -1,0 +1,37 @@
+# AGENTS.md — guia para agentes LLM e contribuidores
+
+Primeiro ponto de contacto para qualquer contribuidor — humano ou LLM. Guia **tool-agnóstico** (serve agentes além do Claude Code) e **ponto de entrada da trilha auditável**. Adere à metodologia **Journey**.
+
+## Sobre o projeto
+**{{ project_name }}** — gerido com a metodologia Journey. Tier de adopção: **Standard**. Estado vivo em `HANDOVER.md`.
+
+## Leitura mínima antes de agir
+1. `HANDOVER.md` — fotografia operacional (**leia primeiro**)
+2. ADR numericamente mais alto em `docs/adr/`
+3. `.specify/memory/constitution.md` — princípios não-negociáveis
+4. `git status --short` + `git log --since="3 days ago" --oneline`
+5. `CLAUDE.md` (se Claude Code) — instruções persistentes
+
+## Source Guard
+Quando **entra algo novo** (um conceito ou definição novo, ou afirmação de fronteira/escopo que não veio da fonte já digerida): consulte a fonte no disco (constituição §, ADR, methodology §), classifique (aderente · conflita · adição de escopo · conflita com precedência) e alerte antes de afirmar/executar; sem verificar, declare incerteza.
+
+## Convenção de commits
+Conventional Commits + duas tags:
+- `DECISION(scope): <summary> [ADR-NNNN]` — decisão material com ADR
+- `HANDOVER(scope): <summary>` — atualização do HANDOVER (fim de sessão)
+- `feat`/`fix`/`refactor`/`docs`/`test`/`chore`
+
+**Mensagens em inglês.**
+
+## Fluxo de desenvolvimento
+Spec-driven via Spec Kit — **specify/clarify/plan/tasks = Discovery; implement = Build**:
+1. `/speckit-specify` → 2. `/speckit-clarify` → 3. `/speckit-plan` → 4. `/speckit-tasks` *(Discovery)* → 5. `/speckit-implement` *(Build)*
+
+## Fim de qualquer sessão
+Toda sessão de trabalho atualiza `HANDOVER.md` (entrada em «Histórico de sessões» + commit `HANDOVER`). Decisão material → adicionalmente «Decisões frescas» + ADR + commit `DECISION [ADR-NNNN]`.
+
+## Princípio-raiz
+Se uma decisão foi tomada em conversa e **não** foi materializada num ficheiro do repositório, ela **não existe** para os próximos agentes. **Escreva.**
+
+## Referências
+- `HANDOVER.md` · `.specify/memory/constitution.md` · `docs/adr/` · `specs/`

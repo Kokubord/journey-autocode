@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ci:
+    name: Build & test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Stack-specific steps go here once the technical stack is defined in Discovery.
+      # Examples to add later, in order:
+      #   - Setup language toolchain (actions/setup-python, actions/setup-node, etc.)
+      #   - Install dependencies
+      #   - Lint / Type-check / Unit tests / Integration tests / Build
+      - name: Foundation placeholder
+        run: |
+          echo "Foundation phase: CI is intentionally a no-op."
+          echo "Stack-specific steps will be added once Discovery defines the technical stack."

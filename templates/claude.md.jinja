@@ -1,0 +1,71 @@
+# Instruções persistentes — projeto {{ project_name }}
+
+Carregadas automaticamente em toda sessão deste repositório. Siga-as com disciplina.
+
+## Início de toda sessão (Opening Handshake — obrigatório)
+Antes de tocar em ficheiros, leia nesta ordem:
+1. **`HANDOVER.md`** — estado operacional, decisões frescas, fase atual.
+2. **`docs/adr/`** — ADRs como fonte da verdade arquitetural; privilegie o de número mais alto.
+3. **`.specify/memory/constitution.md`** — princípios não-negociáveis.
+4. **`git log --since="3 days ago" --oneline`** + **`git status --short`**.
+
+Confirme em 1 frase, antes de qualquer ação: *"Li HANDOVER (atualizado em <data>), o ADR mais alto (ADR-NNNN), a constituição e o git. Estado: <resumo>. Fase: <nome>. Pronto."* Sem essa confirmação, pare e reporte. Se o pedido conflitar com algo registado, **pare e pergunte**.
+
+## Precedência entre decisões
+- Decisão mais recente prevalece, desde que materializada no repositório.
+- Para o mesmo tema, prevalece o ADR de número mais alto.
+
+## Durante a sessão — interceptações proactivas
+- Mudança de schema/endpoint/dependência major → sugira registar ADR antes do commit.
+- Saída de Plan Mode com mudança não-trivial → classifique (trivial/média/grande) e sugira o fluxo.
+- Antes de push → valide HANDOVER atualizado, ADRs referenciados, bateria verde.
+- Nova decisão conflita com ADR existente → alerte antes, ofereça superseder.
+- Item de backlog **aprovado-para-build** → formalize como task no roadmap **antes** de executar (escopo novo → scope-review/emergente; senão registro de build). Backlog não-aprovado fica backlog.
+- Ao **formalizar** uma feature → ela nasce com **≥1 task** no mesmo ato (nunca "0/N sem task").
+- **Trabalho estruturado** (plano/onda/épico) → sobe ao roadmap **por default** (só fora com negação explícita do owner).
+
+O carimbo de classe na linha da task (`[registro de build]`/`[scope-review]`/`[decisão]`) é **convenção documental** (para humano+agente) — não é lido por ferramenta.
+
+## Source Guard — verificar a fonte quando entra algo novo
+Quando **entra algo novo** (um conceito ou definição novo, ou afirmação de fronteira/escopo que não veio da fonte já digerida nesta sessão): **consulte a fonte no disco** (constituição §, ADR, methodology §), **classifique** (aderente · conflita · adição de escopo · conflita com precedência) e **alerte antes de afirmar/executar**. Sem verificar, **declare incerteza**.
+
+## Fronteira Discovery/Build
+`speckit-specify`/`clarify`/`plan`/`tasks` = **Discovery** (entrega o plano completo). `speckit-implement` = **Build** (executa, feature a feature; ativa branch+PR por sub-fase). O Build **não repensa escopo**.
+- **Gate Discovery→Build (ATRITO-41) — obrigatório antes de abrir/sugerir o Build:** verifique que a Discovery está **completa** — **toda** feature priorizada tem `spec`+`plan`+`tasks` (≥1 task) e a constituição está **ratificada** (não placeholder). Rode `journey-phase-start check-discovery`; se `complete=false`, **PARE** — apresente os gaps (features só-esqueleto) e **exija confirmação explícita** do owner (registrada no HANDOVER) para prosseguir. **Nunca sugira o Build com a Discovery incompleta** — o plano completo é o critério de saída da Discovery.
+
+## Fim de toda sessão (Closing Handshake — obrigatório)
+Toda sessão que produziu trabalho atualiza `HANDOVER.md`:
+1. Entrada datada em «Histórico de sessões» no topo, abrindo com o **bloco estruturado do Closing** (um bloco ` ```yaml ` com `fase`, `subfase`, `sessao_id`, `timestamp`, `classe_sessao`, `trabalho_relevante`, `entradas_atualizadas`, `adrs_criados`, `orientacao_proxima_sessao`).
+2. Atualizar Meta e Trilhos se o estado mudou.
+3. Commit `HANDOVER(scope): <resumo>` (inglês).
+
+**Sessão com decisão material** adicionalmente: entrada em «Decisões frescas» + ADR em `docs/adr/NNNN-*.md` + commit `DECISION(scope): <resumo> [ADR-NNNN]`.
+
+## Classes de eventos
+- **Decisão material** (ADR + DECISION + HANDOVER): escolha entre caminhos com trade-offs, pivot técnico, mudança de contrato/schema, regra/convenção global.
+- **Encerramento de sessão** (HANDOVER + commit `HANDOVER`): trabalho sem decisão material.
+- **Trivial** (commit normal): typo, lint, formatação, dependência patch.
+
+## Disciplina de branches
+A partir do Build: uma branch + um PR por sub-fase. Formato `feat/phase-N-slug`. Merge com squash; CI verde obrigatório; deletar branch após merge.
+- **Sub-fase = fatia mergeável, NÃO a fase inteira (ATRITO-96):** uma sub-fase é **uma US / um entregável coerente** = um PR pequeno e revisável. **Fatie fases grandes** em várias branches `feat/phase-N-<fatia>` (setup / us1 / us2 …) — nunca empacote a fase toda numa branch só (PR gigante = revisão ruim + roadmap parado até o merge; o Site lê a `main`). `journey-phase-start subphase-advice` sinaliza features grandes demais para fatiar.
+- **"CI verde" exige um CI real (ATRITO-97):** o `ci.yml` instalado é um **placeholder no-op** até a Discovery fixar o stack — enquanto for, "CI verde" no gate de saída **não valida nada**. Torne o CI real (rodar os testes do stack) assim que a Discovery fixar o stack; o `journey-phase-end exit-check` **avisa** enquanto o placeholder persistir.
+- Múltiplos agentes em paralelo → **uma working tree por agente** (`git worktree`), para não colidirem no mesmo `.git` (índice corrompido / escrita duplicada). Sem isolamento: handover explícito (deixar `main` limpo, sem branch pendente, antes de devolver). Ao retomar: `git fetch` + confirmar `main` limpo.
+
+## Modos de execução (roteamento de escrita)
+Roteie a **escrita** ao runtime onde o repositório vive: **Nativo** (mesmo SO), **Túnel WSL** (IDE no Windows escrevendo no WSL via interop), **Windows puro**. Leitura de qualquer ambiente; **escrita sempre no runtime do repo**. Anti-padrão **vetado**: escrever no repo WSL via UNC (`\\wsl.localhost\`).
+- **Modificações no ambiente do usuário** (variáveis, `.bashrc`, env do Windows como WSLENV) exigem **consentimento explícito**: detectar → explicar → pedir → **degradar honesto** se recusado. Nunca configurar em silêncio.
+
+## Git conduzido
+Auto-commit do Spec Kit **desligado**. Commits **propostos pelo agente** (convenções Journey, **staging curado**, **gate humano**) — sem `git add .` indiscriminado nem mensagens automáticas. Push/PR/merge no runtime do repo.
+
+## Disciplina de tasks
+- **Deferimento honesto:** um FR/story marcado `Decision=Deferido` no `research.md` vira **tarefa-marcador DEFERIDO** (cita a causa, preserva a fase, cross-ref ao `research.md`) — **nunca** uma task com caminho fabricado. Defere-se só o que o `research.md` marca (anti-fabricação).
+- **TDD test-first = OFF por default** (testes opcionais salvo pedido explícito; ficam para o Build); mas o **gate de cobertura da Definição de Pronto** entra como **task de Pronto** (Polish) — não fabricar testes como implementação.
+
+## Idioma
+- Código e mensagens de commit: **inglês**.
+- Documentação, ADRs e decisões: **{{ language }}**.
+
+## Princípio-raiz
+Se uma decisão foi tomada em conversa e **não** foi materializada em ficheiro deste repositório, ela **não existe** para os próximos agentes. **Escreva.**

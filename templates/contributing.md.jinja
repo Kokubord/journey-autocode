@@ -1,0 +1,26 @@
+# Contribuindo com {{ project_name }}
+
+Convenções de idioma, commits e Pull Requests deste repositório, seguindo a metodologia **Journey**.
+
+## Idioma
+
+| Artefato | Idioma |
+|---|---|
+| Código (identificadores, comentários) | **Inglês** |
+| Mensagens de commit | **Inglês** |
+| Documentação / ADRs / decisões | **{{ language }}** |
+
+## Convenção de commits
+
+Conventional Commits + duas tags canônicas:
+
+- `DECISION(scope): <resumo> [ADR-NNNN]` — decisão material (exige ADR)
+- `HANDOVER(scope): <resumo>` — atualização do `HANDOVER.md` ao encerrar sessão
+- `feat` / `fix` / `refactor` / `docs` / `test` / `chore`
+
+## Pull Requests
+
+- **Um PR = um intent.** Pequenos, focados, taggeados.
+- **Decisão material → ADR** em `docs/adr/NNNN-*.md`.
+- **Toda sessão termina com `HANDOVER.md` atualizado** + commit `HANDOVER(...)`.
+- Disciplina de **uma branch + um PR por sub-fase a partir do Build**; merge squash.

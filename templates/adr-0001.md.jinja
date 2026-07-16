@@ -1,0 +1,34 @@
+# ADR-0001 — Adopção da metodologia Journey
+
+| Campo | Valor |
+|---|---|
+| **Status** | Aceito |
+| **Data** | {{ date }} |
+| **Autor** | owner |
+
+## Contexto
+
+O projeto **{{ project_name }}** adota a metodologia **Journey** para gestão de projeto assistida por IA. Sem memória explícita entre sessões de IA, contexto se perde, retrabalho acontece e decisões viram conhecimento tribal. Journey resolve isso com um ponto único de controle (`HANDOVER.md`) e uma trilha auditável (ADRs + commits taggeados).
+
+## Decisão
+
+Adopção da metodologia **Journey**, com três pilares:
+
+1. **Memória viva única** — `HANDOVER.md` na raiz como ponto único de controle de modificações.
+2. **Reforço automático** — `CLAUDE.md` / `AGENTS.md` com instruções persistentes carregadas em toda sessão.
+3. **Trilha auditável** — ADRs numerados em `docs/adr/` + commits com tags `DECISION(scope)` / `HANDOVER(scope)`.
+
+**Tier de adopção:** Standard. Ciclo de vida em 6 fases: Warmup, Foundation, Discovery, Build, Release, Run.
+
+**Stack técnica e licença:** deferidas para a Discovery (não pré-comprometidas na Foundation).
+
+## Consequências
+
+- Ponto único de controle; memória entre sessões sem infraestrutura; rastreabilidade via `git log --grep='DECISION\|HANDOVER'`.
+- Exige disciplina — mitigada por instruções persistentes (`CLAUDE.md`).
+
+## Referências
+
+- `HANDOVER.md` — estado vivo
+- `.specify/memory/constitution.md` — constituição (placeholder até Discovery)
+- `docs/adr/` — decisões arquiteturais

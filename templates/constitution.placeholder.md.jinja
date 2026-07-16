@@ -1,0 +1,41 @@
+# {{ project_name }} — Constituição (Placeholder)
+
+> **⚠️ Placeholder mínimo universal.** A Constituição completa é entregável da fase de **Discovery**. Este arquivo contém apenas as regras universais (independentes de stack ou produto) suficientes para o Spec Kit operar antes da Discovery.
+
+## Princípios universais (válidos desde a Foundation)
+
+### I. Idioma canônico
+
+- **Código** (identificadores, comentários, logs): **inglês**
+- **Mensagens de commit:** **inglês**
+- **Documentação / ADRs / decisões:** **{{ language }}**
+
+### II. Convenção de commits
+
+Conventional Commits + duas tags canônicas da metodologia Journey:
+
+- `DECISION(scope): <resumo> [ADR-NNNN]` — decisão material (exige ADR)
+- `HANDOVER(scope): <resumo>` — atualização do `HANDOVER.md` ao encerrar sessão
+- `feat` / `fix` / `refactor` / `docs` / `test` / `chore`
+
+### III. Política de PRs por fase
+
+Fases: Warmup, Foundation, Discovery, Build, Release, Run. Princípios universais:
+
+- **Um PR = um intent.** Pequenos, focados, taggeados.
+- **Decisão material → ADR + commit `DECISION`.**
+- **Sessão de trabalho → `HANDOVER.md` atualizado + commit `HANDOVER`.**
+
+### IV. Layout das specs
+
+Specs por feature vivem em `specs/NNN-slug/` na raiz do repositório (default do Spec Kit): cada feature numerada tem a sua pasta com `spec.md`, `plan.md` e `tasks.md`.
+
+## Pendências travadas até a Discovery
+
+- **Stack técnica** — a definir em Discovery; não pré-comprometer (sem `backend/`/`frontend/` na Foundation).
+- **Licença** — a definir em Discovery.
+- **Constituição completa** — ratificada na Discovery a partir destes princípios + decisões de stack/licença.
+
+---
+
+**Versão:** 0.0 (placeholder) | **Status:** Provisório até Discovery

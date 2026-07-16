@@ -1,0 +1,48 @@
+[project]
+name = "journey-skill"
+version = "0.1.0"
+description = "Journey skill: standalone commands consuming journey-core."
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = [
+    "journey-core",
+    "typer>=0.12",
+    "rich>=13",
+    "gitpython>=3",
+]
+
+[project.scripts]
+journey-init = "journey_skill.cli:main"
+journey-discover = "journey_skill.commands.journey_discover:main"
+journey-phase-start = "journey_skill.commands.journey_phase_start:main"
+journey-decision = "journey_skill.commands.journey_decision:main"
+journey-phase-end = "journey_skill.commands.journey_phase_end:main"
+journey-manuals-generate = "journey_skill.commands.journey_manuals_generate:main"
+journey-report = "journey_skill.commands.journey_report:main"
+journey-roadmap-nourish = "journey_skill.commands.journey_roadmap_nourish:main"
+journey-scope-review = "journey_skill.commands.journey_scope_review:main"
+journey-release-start = "journey_skill.commands.journey_release_start:main"
+journey-archaeology = "journey_skill.commands.journey_archaeology:main"
+journey-upgrade = "journey_skill.commands.journey_upgrade:main"
+journey-retrospective = "journey_skill.commands.journey_retrospective:main"
+journey-bootstrap = "journey_skill.commands.journey_bootstrap:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Bundle the installables (templates + journey-* skills) INTO the package via a build hook that
+# copies them into src/journey_skill/_bundled — survives BOTH sdist and wheel (feature 024 /
+# ATRITO-94). A ../../ force-include broke `uv build` (sdist cannot reference paths outside the
+# project root; uv builds the wheel from the sdist). ``artifacts`` includes the (gitignored) bundle.
+[tool.hatch.build]
+artifacts = ["src/journey_skill/_bundled/**"]
+
+[tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/journey_skill"]
+
+[tool.uv.sources]
+journey-core = { workspace = true }

@@ -1,0 +1,63 @@
+# {{ project_name }} — Contrato de formato do roadmap (Spec Kit ↔ Motor)
+
+> Este documento declara o **formato** que o `tasks.md` e o `spec.md` deste projeto seguem para que o **roadmap do site** (o Motor da Journey) renderize. É o contrato entre o **Spec Kit** (que gera esses arquivos) e o **Motor** (que os lê), tornado explícito — referência para qualquer agente/IDE que escreva esses arquivos.
+
+## Propósito
+
+O site da Journey lê este repositório e **monta o roadmap** a partir das fases e tarefas escritas em `specs/NNN-slug/tasks.md` e `specs/NNN-slug/spec.md`. O Motor reconhece esses arquivos parseando um formato específico — se o formato não bater, as tarefas não são reconhecidas e o roadmap aparece vazio.
+
+Esse formato é produzido pelo **Spec Kit** (`speckit-tasks`), parte da metodologia Journey. Este documento o declara por escrito para que o acordo seja explícito.
+
+## O formato
+
+O Motor exige **três elementos**.
+
+### 1. Fase — `## Phase N: <título>`
+
+Cabeçalho de **nível 2** (`##`), com a palavra **`Phase` em inglês** (mesmo num documento em português), um número, dois-pontos, e o título.
+
+```markdown
+## Phase 1: Fundação
+## Phase 2: Ingestão de dados
+```
+
+- A palavra **é `Phase`** (inglês) — `## Fase 1:` **não** é reconhecido.
+- `N` é numérico (`1`, `2`, …).
+- *(padrão: `^##\s+Phase\s+\d+:\s*(.+?)\s*$`)*
+
+### 2. Tarefa — `- [ ] TNNN <descrição>`
+
+Item de lista, **sem indentação** (começa na coluna 0), com a caixa de marcação, um id `T` + dígitos, um espaço, e a descrição.
+
+```markdown
+- [ ] T001 Configurar o ambiente de desenvolvimento
+- [x] T002 Criar o repositório remoto
+```
+
+- `- [ ]` = aberta · `- [x]` (ou `- [X]`) = feita.
+- O id é **`T` seguido de dígitos** (`T001`, `T42`) — depois um **espaço** e a descrição.
+- **Sem indentação:** uma tarefa indentada (sub-bullet) **não** é reconhecida.
+- *(padrão: `^- \[([ xX])\]\s+(T\d+)\s+(.*)$`)*
+
+### 3. Origem — `**Origem**: emergente` (no `spec.md`)
+
+Marca **opcional** no **cabeçalho da `spec.md`** (não no `tasks.md`) que distingue uma feature **emergente** (surgida durante o trabalho, via scope-review) de uma **planejada**.
+
+```markdown
+**Origem**: emergente (scope-review, ADR-NNNN)
+```
+
+- Vai na **`spec.md`**, não no `tasks.md`.
+- O valor **começa com `emergente`** → a feature conta como emergente (entra no indicador de "ondas emergentes" do roadmap).
+- **Ausência** da marca → a feature é tratada como **planejada** (o caso normal). Não se adivinha.
+- *(padrão: presença detectada por `^\s*\*\*Origem\*\*`; classifica como emergente quando o valor começa com `emergente`)*
+
+## Dependência: Spec Kit
+
+Este formato é **produzido pelo Spec Kit** (`speckit-tasks`), parte integrante da metodologia Journey. O fluxo `/speckit-specify → clarify → plan → tasks` gera o `spec.md`/`tasks.md` já compatíveis. O propósito deste contrato **não** é substituir o Spec Kit — é declarar o formato que ele assume, para que o acordo deixe de ser implícito.
+
+## Degradação — o site avisa, não falha em silêncio
+
+O Motor segue a filosofia **avisar, não falhar em silêncio** (saúde-da-fonte). Ele alerta sobre a maioria dos problemas de formato — por exemplo: feature sem `tasks.md`, linha que parece tarefa mas está malformada, `spec.md` sem `**Status**` no cabeçalho, bloco Closing com YAML inválido.
+
+> ⚠️ Alguns descasamentos ainda podem render **vazio sem aviso** — em especial um `tasks.md` **sem nenhum** `## Phase N:` (as tarefas não se agrupam) ou **sem nenhuma linha** no formato `- [ ] T...` (nenhuma tarefa reconhecida). Na dúvida, **siga este contrato**.

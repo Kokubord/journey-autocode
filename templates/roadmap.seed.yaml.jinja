@@ -1,0 +1,42 @@
+schema_version: 1
+project: {{ project_name }}
+generated_at: {{ date }}
+generator_version: seed
+source_of_truth: true
+phases:
+- id: warmup
+  name: Warmup
+  status: next
+  subphases: []
+- id: foundation
+  name: Foundation
+  status: future
+  subphases:
+  - id: foundation-pre-ide
+    name: Pré-IDE
+    status: future
+    tasks: []
+  - id: foundation-no-ide
+    name: No-IDE
+    status: future
+    tasks: []
+  - id: foundation-validacao
+    name: Validação operacional
+    status: future
+    tasks: []
+- id: discovery
+  name: Discovery
+  status: future
+  subphases: []
+- id: build
+  name: Build
+  status: future
+  subphases: []
+- id: release
+  name: Release
+  status: future
+  subphases: []
+- id: run
+  name: Run
+  status: future
+  subphases: []
