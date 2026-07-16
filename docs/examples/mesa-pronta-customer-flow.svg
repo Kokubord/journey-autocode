@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">MesaPronta - fluxo mobile do cliente</title>
+  <desc id="desc">Quatro telas ficticias mostram descoberta, reserva, confirmacao e fila.</desc>
+  <defs>
+    <filter id="s"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#172033" flood-opacity=".16"/></filter>
+    <linearGradient id="g"><stop stop-color="#ef6351"/><stop offset="1" stop-color="#f49d5b"/></linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#ef6351"/></marker>
+    <style>
+      .bg{fill:#f5f2ed}.p{fill:#fff;stroke:#d9d4cc;stroke-width:2}.bar{fill:#172033}.card{fill:#fff;stroke:#e8e3dc}.soft{fill:#fff6ef}
+      .h1{font:700 25px Arial;fill:#172033}.h2{font:700 17px Arial;fill:#172033}.b{font:14px Arial;fill:#556070}.sm{font:12px Arial;fill:#7c8491}.xs{font:11px Arial;fill:#7c8491}
+      .w{fill:#fff}.ac{fill:#ef6351}.flow{stroke:#ef6351;stroke-width:3;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1440" height="900" class="bg"/>
+  <text x="70" y="62" class="h1">MesaPronta - fluxo do cliente</text>
+  <text x="70" y="90" class="b">Mockup ficticio de referencia - FR-001, FR-002, FR-004 e FR-006.</text>
+
+  <g transform="translate(70 130)" filter="url(#s)">
+    <rect width="285" height="650" rx="34" class="p"/><rect x="92" y="13" width="102" height="22" rx="11" class="bar"/>
+    <text x="24" y="75" class="h2">Boa noite, Ana</text><text x="24" y="99" class="sm">Onde voce quer comer?</text>
+    <rect x="24" y="119" width="237" height="46" rx="12" fill="#f3f1ed"/><text x="42" y="148" class="b">Buscar restaurante</text>
+    <rect x="24" y="184" width="237" height="148" rx="16" fill="url(#g)"/>
+    <text x="42" y="220" class="sm w">PERTO DE VOCE</text><text x="42" y="252" class="h1 w">Casa Oliva</text>
+    <text x="42" y="278" class="b w">Italiana - 12 min</text><rect x="42" y="294" width="112" height="27" rx="13" fill="#fff"/>
+    <text x="56" y="312" class="xs ac">Mesa as 20:30</text>
+    <text x="24" y="369" class="h2">Outras opcoes</text>
+    <rect x="24" y="388" width="237" height="78" rx="14" class="card"/><circle cx="55" cy="427" r="20" fill="#e9b872"/>
+    <text x="87" y="420" class="b">Quintal 27</text><text x="87" y="443" class="sm">Brasileira - 25 a 35 min</text>
+    <rect x="24" y="480" width="237" height="78" rx="14" class="card"/><circle cx="55" cy="519" r="20" fill="#83b7a0"/>
+    <text x="87" y="512" class="b">Mare Alta</text><text x="87" y="535" class="sm">Frutos do mar - sem fila</text>
+    <text x="24" y="620" class="xs">Inicio        Reservas        Perfil</text>
+  </g>
+  <path d="M370 450h55" class="flow"/>
+
+  <g transform="translate(430 130)" filter="url(#s)">
+    <rect width="285" height="650" rx="34" class="p"/><rect x="92" y="13" width="102" height="22" rx="11" class="bar"/>
+    <text x="24" y="74" class="b">Voltar - Casa Oliva</text><text x="24" y="112" class="h1">Reservar mesa</text>
+    <text x="24" y="143" class="sm">Escolha os detalhes e revise.</text><text x="24" y="188" class="sm">DATA</text>
+    <rect x="24" y="203" width="72" height="55" rx="12" class="soft"/><text x="43" y="226" class="xs">HOJE</text><text x="43" y="246" class="b">16 jul</text>
+    <rect x="105" y="203" width="72" height="55" rx="12" class="card"/><text x="123" y="226" class="xs">SEX</text><text x="123" y="246" class="b">17 jul</text>
+    <text x="24" y="296" class="sm">HORARIO</text>
+    <rect x="24" y="310" width="70" height="38" rx="10" class="card"/><text x="40" y="335" class="b">20:00</text>
+    <rect x="103" y="310" width="70" height="38" rx="10" class="soft"/><text x="119" y="335" class="b ac">20:30</text>
+    <rect x="182" y="310" width="70" height="38" rx="10" class="card"/><text x="198" y="335" class="b">21:00</text>
+    <text x="24" y="388" class="sm">PESSOAS</text><rect x="24" y="402" width="237" height="48" rx="12" class="card"/>
+    <text x="42" y="432" class="b">menos       4 pessoas       mais</text>
+    <text x="24" y="486" class="sm">PEDIDO ESPECIAL</text><rect x="24" y="500" width="237" height="62" rx="12" class="card"/>
+    <text x="40" y="529" class="sm">Cadeira infantil e acessibilidade</text>
+    <rect x="24" y="583" width="237" height="46" rx="13" class="ac"/><text x="84" y="612" class="b w">Revisar reserva</text>
+  </g>
+  <path d="M730 450h55" class="flow"/>
+
+  <g transform="translate(790 130)" filter="url(#s)">
+    <rect width="285" height="650" rx="34" class="p"/><rect x="92" y="13" width="102" height="22" rx="11" class="bar"/>
+    <circle cx="142" cy="112" r="39" fill="#e8f6f0"/><text x="125" y="122" style="font:700 28px Arial;fill:#2a9d78">OK</text>
+    <text x="55" y="178" class="h1">Reserva confirmada</text><text x="59" y="206" class="sm">O restaurante recebeu seu pedido.</text>
+    <rect x="24" y="239" width="237" height="174" rx="16" class="card"/><text x="42" y="272" class="h2">Casa Oliva</text>
+    <text x="42" y="318" class="sm">Hoje, 20:30</text><text x="42" y="344" class="sm">4 pessoas</text>
+    <text x="42" y="370" class="sm">Acessibilidade solicitada</text><text x="42" y="397" class="xs">Codigo MP-4821</text>
+    <rect x="24" y="433" width="237" height="70" rx="14" class="soft"/><text x="42" y="460" class="b">Lembrete as 19:30</text>
+    <text x="42" y="482" class="xs">Cancelar sem custo ate 19:30.</text>
+    <rect x="24" y="530" width="237" height="44" rx="12" class="ac"/><text x="92" y="558" class="b w">Ver minha reserva</text>
+  </g>
+  <path d="M1090 450h45" class="flow"/>
+
+  <g transform="translate(1140 130)" filter="url(#s)">
+    <rect width="230" height="650" rx="34" class="p"/><rect x="70" y="13" width="90" height="22" rx="11" class="bar"/>
+    <text x="22" y="76" class="b">Voltar - Minha fila</text><text x="22" y="118" class="h1">Quintal 27</text>
+    <text x="22" y="146" class="sm">Fila digital - ao vivo</text>
+    <circle cx="115" cy="247" r="65" class="soft" stroke="#ef6351" stroke-width="8"/>
+    <text x="87" y="240" class="sm">POSICAO</text><text x="94" y="280" style="font:700 38px Arial;fill:#172033">3</text>
+    <text x="62" y="343" class="h2">Estimativa: 18 min</text><text x="39" y="370" class="sm">Avisaremos quando estiver pronta.</text>
+    <rect x="22" y="405" width="186" height="86" rx="14" fill="#e8f6f0"/><text x="38" y="435" class="b">Status atualizado</text>
+    <text x="38" y="460" class="sm">Ha 1 minuto - 2 pessoas</text>
+    <rect x="22" y="520" width="186" height="44" rx="12" class="ac"/><text x="65" y="548" class="b w">Avisar atraso</text>
+    <text x="76" y="602" class="sm">Sair da fila</text>
+  </g>
+  <text x="70" y="835" class="sm">Fluxo A: descobrir, escolher horario, confirmar e acompanhar. Cada tela testa uma hipotese do Documento de Visao.</text>
+</svg>

@@ -36,7 +36,13 @@ O agente deve **pausar** para a tua aprovação em cada passo.
 
 ## Guias por fase
 
-Começa em [`docs/phases/00-warmup.md`](docs/phases/00-warmup.md) — inclui o capítulo sobre o **Documento de Visão** e mockups.
+Começa em [`docs/phases/00-warmup.md`](docs/phases/00-warmup.md) — inclui o capítulo sobre o
+**Documento de Visão**, roteiro de levantamento com usuários, checklist de prontidão e um
+[exemplo fictício preenchido](docs/examples/mesa-pronta-vision.md) com mockups de fluxos e telas.
+
+Warmup é recomendado, mas não bloqueante: podes instalar Journey primeiro ou amadurecer a ideia
+antes. Se avançares só com um prompt mínimo, a metodologia deve declarar a menor confiança nos
+requisitos e o maior risco de retrabalho — nunca fingir que houve validação.
 
 ## Actualizações
 
