@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">MesaPronta - painel web do restaurante</title>
+  <desc id="desc">Painel ficticio com reservas, fila, salao e detalhe operacional.</desc>
+  <defs>
+    <filter id="s"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0d1728" flood-opacity=".14"/></filter>
+    <style>
+      .bg{fill:#edf0f4}.shell{fill:#fff;stroke:#dce1e8}.nav{fill:#172033}.card{fill:#fff;stroke:#dfe4eb}.soft{fill:#fff5ef}.green{fill:#e7f6f0}.amber{fill:#fff3d8}.line{stroke:#e4e8ee}
+      .h1{font:700 25px Arial;fill:#172033}.h2{font:700 16px Arial;fill:#172033}.b{font:14px Arial;fill:#4d596b}.sm{font:12px Arial;fill:#758094}.xs{font:11px Arial;fill:#758094}.cap{font:700 10px Arial;fill:#8a94a5;letter-spacing:1px}
+      .navt{font:13px Arial;fill:#bfc8d8}.w{fill:#fff}.ac{fill:#ef6351}
+    </style>
+  </defs>
+  <rect width="1440" height="900" class="bg"/>
+  <text x="58" y="54" class="h1">MesaPronta - operacao do restaurante</text>
+  <text x="58" y="82" class="b">Mockup ficticio de referencia - FR-003, FR-005, FR-007, FR-008 e FR-010.</text>
+
+  <g transform="translate(58 112)" filter="url(#s)">
+    <rect width="1324" height="720" rx="20" class="shell"/>
+    <path d="M0 20Q0 0 20 0h204v720H20Q0 720 0 700z" class="nav"/>
+    <circle cx="42" cy="43" r="18" class="ac"/><text x="35" y="50" style="font:700 18px Arial;fill:#fff">M</text>
+    <text x="70" y="48" style="font:700 17px Arial;fill:#fff">MesaPronta</text>
+    <text x="24" y="94" class="cap">OPERACAO</text>
+    <rect x="14" y="110" width="196" height="40" rx="9" fill="#28344b"/><text x="34" y="136" class="navt">Visao de hoje</text>
+    <text x="34" y="182" class="navt">Reservas</text><text x="34" y="226" class="navt">Fila de espera</text>
+    <text x="34" y="270" class="navt">Salao e mesas</text><text x="24" y="326" class="cap">GESTAO</text>
+    <text x="34" y="366" class="navt">Relatorios</text><text x="34" y="410" class="navt">Configuracoes</text>
+    <rect x="18" y="638" width="188" height="58" rx="10" fill="#202c42"/><circle cx="45" cy="667" r="15" fill="#f4a261"/>
+    <text x="68" y="663" class="navt">Casa Oliva</text><text x="68" y="682" style="font:11px Arial;fill:#8190aa">Turno da noite</text>
+
+    <g transform="translate(224)">
+      <rect width="1100" height="72" fill="#fff"/>
+      <text x="30" y="31" class="h2">Quinta-feira, 16 de julho</text><text x="30" y="52" class="sm">Atualizado agora - salao aberto</text>
+      <rect x="903" y="17" width="165" height="40" rx="10" class="ac"/><text x="932" y="43" class="b w">+ Nova reserva</text>
+
+      <g transform="translate(30 94)">
+        <rect width="245" height="102" rx="13" class="card"/><text x="18" y="28" class="cap">RESERVAS HOJE</text>
+        <text x="18" y="69" style="font:700 30px Arial;fill:#172033">38</text><text x="70" y="67" class="sm">92 pessoas</text>
+        <rect x="263" width="245" height="102" rx="13" class="card"/><text x="281" y="28" class="cap">NA FILA AGORA</text>
+        <text x="281" y="69" style="font:700 30px Arial;fill:#172033">6</text><text x="331" y="67" class="sm">media 21 min</text>
+        <rect x="526" width="245" height="102" rx="13" class="card"/><text x="544" y="28" class="cap">OCUPACAO</text>
+        <text x="544" y="69" style="font:700 30px Arial;fill:#172033">78%</text><text x="615" y="67" class="sm">14 de 18 mesas</text>
+        <rect x="789" width="249" height="102" rx="13" class="card"/><text x="807" y="28" class="cap">PROXIMA JANELA</text>
+        <text x="807" y="66" class="h2">20:30 - 4 mesas</text><text x="807" y="87" class="sm">capacidade confirmada</text>
+      </g>
+
+      <g transform="translate(30 218)">
+        <rect width="650" height="420" rx="14" class="card"/><text x="20" y="34" class="h2">Chegadas e reservas</text>
+        <rect x="488" y="14" width="142" height="32" rx="8" fill="#f3f5f8"/><text x="513" y="35" class="sm">Todos os status</text>
+        <line x1="0" y1="58" x2="650" y2="58" class="line"/>
+        <text x="20" y="84" class="cap">HORA</text><text x="94" y="84" class="cap">CLIENTE</text><text x="300" y="84" class="cap">GRUPO</text>
+        <text x="390" y="84" class="cap">STATUS</text><text x="520" y="84" class="cap">MESA</text>
+        <rect x="12" y="101" width="626" height="60" rx="9" class="soft"/>
+        <text x="20" y="136" class="b">20:30</text><text x="94" y="127" class="b">Ana Martins</text><text x="94" y="146" class="xs">acessibilidade solicitada</text>
+        <text x="300" y="136" class="b">4</text><rect x="390" y="116" width="92" height="26" rx="13" class="green"/>
+        <text x="407" y="134" class="xs">Confirmada</text><text x="520" y="136" class="b">A confirmar</text>
+        <text x="20" y="198" class="b">20:30</text><text x="94" y="198" class="b">Lucas Rocha</text><text x="300" y="198" class="b">2</text>
+        <rect x="390" y="178" width="92" height="26" rx="13" class="green"/><text x="407" y="196" class="xs">Confirmada</text><text x="520" y="198" class="b">Mesa 8</text>
+        <line x1="20" y1="220" x2="630" y2="220" class="line"/>
+        <text x="20" y="258" class="b">20:45</text><text x="94" y="258" class="b">Bianca Melo</text><text x="300" y="258" class="b">5</text>
+        <rect x="390" y="238" width="92" height="26" rx="13" class="amber"/><text x="409" y="256" class="xs">A caminho</text><text x="520" y="258" class="b">Mesa 12</text>
+        <line x1="20" y1="280" x2="630" y2="280" class="line"/>
+        <text x="20" y="318" class="b">21:00</text><text x="94" y="318" class="b">Rafael Dias</text><text x="300" y="318" class="b">3</text>
+        <rect x="390" y="298" width="92" height="26" rx="13" fill="#eef0f4"/><text x="411" y="316" class="xs">Pendente</text><text x="520" y="318" class="b">Sem mesa</text>
+        <rect x="20" y="357" width="610" height="42" rx="9" fill="#f7f8fa"/><text x="233" y="383" class="sm">Ver todas as 38 reservas</text>
+      </g>
+
+      <g transform="translate(700 218)">
+        <rect width="338" height="202" rx="14" class="card"/><text x="18" y="34" class="h2">Fila de espera</text><text x="268" y="34" class="sm">6 grupos</text>
+        <rect x="16" y="56" width="306" height="52" rx="9" class="soft"/><text x="28" y="78" class="b">1 - Carla - 2 pessoas</text>
+        <text x="28" y="98" class="xs">18 min - notificar agora</text><text x="28" y="134" class="b">2 - Pedro - 4 pessoas</text>
+        <text x="215" y="134" class="sm">14 min</text><text x="28" y="170" class="b">3 - Luiza - 3 pessoas</text><text x="215" y="170" class="sm">11 min</text>
+
+        <rect y="218" width="338" height="202" rx="14" class="card"/><text x="18" y="250" class="h2">Mapa do salao</text><text x="244" y="250" class="sm">18 mesas</text>
+        <g transform="translate(24 274)">
+          <rect width="62" height="42" rx="10" class="green"/><text x="17" y="26" class="xs">M1 livre</text>
+          <rect x="76" width="62" height="42" rx="10" fill="#fee5df"/><text x="90" y="26" class="xs">M2 22m</text>
+          <rect x="152" width="62" height="42" rx="10" fill="#fee5df"/><text x="166" y="26" class="xs">M3 47m</text>
+          <rect x="228" width="62" height="42" rx="10" class="green"/><text x="245" y="26" class="xs">M4 livre</text>
+          <rect y="56" width="100" height="42" rx="10" fill="#fee5df"/><text x="22" y="82" class="xs">M5 - 6 lugares</text>
+          <rect x="114" y="56" width="80" height="42" rx="10" class="amber"/><text x="130" y="82" class="xs">M6 limpar</text>
+          <rect x="208" y="56" width="82" height="42" rx="10" fill="#fee5df"/><text x="229" y="82" class="xs">M7 31m</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  <text x="58" y="872" class="sm">Fluxo B: receber reserva, atribuir capacidade, acompanhar chegada e acomodar. O mockup testa operacao, nao estetica final.</text>
+</svg>
